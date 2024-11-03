@@ -1,4 +1,6 @@
 import { createContext, useState } from "react";
+import React from "react";
+import PropTypes from 'prop-types';
 
 export const commentSectionContext = createContext(null);
 
@@ -26,6 +28,11 @@ const ContextProvider = ({ children }) => {
       {children}
     </commentSectionContext.Provider>
   );
+
+};
+
+ContextProvider.propTypes = {
+  children: PropTypes.node.isRequired, // or `PropTypes.node` if it's optional
 };
 
 export default ContextProvider;

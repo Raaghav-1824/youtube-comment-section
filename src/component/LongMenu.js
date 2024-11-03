@@ -5,6 +5,7 @@ import MenuItem from '@mui/material/MenuItem';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { useContext } from 'react';
 import { commentSectionContext } from '../context/context';
+import PropTypes from 'prop-types';
 
 const options = [
   'Edit',
@@ -17,12 +18,9 @@ function LongMenu({commentid}) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const {
-    newCommentText,
     setNewCommentText,
     comments,
-    setComments ,
-    menuClickComment, setMenuClickComment,
-    editIndex, setEditIndex,
+    setComments , setEditIndex,
     
   } = useContext(commentSectionContext);
   // console.log(props)
@@ -34,7 +32,7 @@ function LongMenu({commentid}) {
     setAnchorEl(null);
   };
 
-  const handleEditComment = (event) => {
+  const handleEditComment = () => {
     setEditIndex(commentid - 1);
     comments.map((comment)=>{
       if(comment.id === commentid){
@@ -95,5 +93,10 @@ function LongMenu({commentid}) {
     </div>
   );
 }
+
+LongMenu.propTypes = {
+  commentid: PropTypes.number.isRequired,  // Change 'string' to the expected data type
+};
+
 
 export default LongMenu;

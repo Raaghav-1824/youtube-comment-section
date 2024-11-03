@@ -7,7 +7,6 @@ import ReplyOutlinedIcon from "@mui/icons-material/ReplyOutlined";
 import Button from "@mui/material/Button";
 import Avatar from "@mui/material/Avatar";
 import Paper from "@mui/material/Paper";
-import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import Chip from "@mui/material/Chip";
 import LongMenu from "./LongMenu";
@@ -106,12 +105,6 @@ const IconContainer = styled.div`
   color: gray;
 `;
 
-const Icon = styled.div`
-  transition: color 0.3s ease;
-  &:hover {
-    color: "lightgrey";
-  }
-`;
 
 // Reply container for displaying replies
 const Reply = styled.div`
@@ -354,6 +347,7 @@ const InputContainer = () => {
                         alignItems: "center",
                         justifyContent: "space-around",
                       }}
+                      key={index}
                     >
                       <div
                         style={{
@@ -362,12 +356,13 @@ const InputContainer = () => {
                           alignItems: "center",
                           flex: "0.95",
                         }}
+                        
                       >
                         <Avatar
                           src="/broken-image.jpg"
                           sx={{ width: 24, height: 24, margin: 1 }}
                         />
-                        <p key={index}>{reply}</p>
+                        <p>{reply}</p>
                       </div>
                       <Chip
                         key={index}
