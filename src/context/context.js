@@ -7,7 +7,7 @@ export const commentSectionContext = createContext(null);
 const ContextProvider = ({ children }) => {
   const [comments, setComments] = useState([
     {
-      id: 1,
+      id: 0,
       text: "mock comment",
       replies: [],
       likeAndDislike: {

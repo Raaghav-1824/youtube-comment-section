@@ -34,13 +34,14 @@ function LongMenu({commentid}) {
 
   const handleEditComment = () => {
     setEditIndex(commentid - 1);
-    comments.map((comment)=>{
-      if(comment.id === commentid){
+    
+    comments.forEach((comment) => {   // Use .forEach instead of .map
+      if (comment.id === commentid) {
         setNewCommentText(comment.text);
       }
-    })
-
-  }
+    });
+  };
+  
 
   const handleDeleteComment = () =>{
     const updatedComments = comments.filter((comment) => comment.id !== commentid);
